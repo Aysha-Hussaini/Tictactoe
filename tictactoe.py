@@ -12,6 +12,7 @@ current_player = "X"
 #Number of turns
 number_of_turns = 1
 
+
 board = ["-", "-", "-", 
          "-", "-", "-", 
          "-", "-", "-"] 
