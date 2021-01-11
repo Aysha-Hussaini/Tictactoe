@@ -9,9 +9,6 @@ Winner = None
 #current player
 current_player = "X"
 
-#Number of turns
-number_of_turns = 1
-
 
 board = ["-", "-", "-", 
          "-", "-", "-", 
@@ -26,7 +23,6 @@ def display_board():
 
 def play_game():
     #global variables
-    global number_of_turns
     global game_is_on
     display_board() #initialize board
     #While game is going
@@ -37,7 +33,6 @@ def play_game():
         check_if_game_over()
         
         flip_player()
-        
         
     #The game ended    
     if Winner == "X" or Winner  == "O":
@@ -52,17 +47,19 @@ def handle_turn(player):
     position = input("Choose your position from 1-9  : ")
     valid = False
   
+    # Logic to handle unwanted inputs and place the correct input on board
     while not valid:  
         while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
             position = input("Choose your position from 1-9  : ")
         
+        #string to int conversion 
         position = int(position) - 1
         
         if board[position] != "-":
             print("Not a valid position")
         else:
             valid = True    
-    
+    #place valid input on the board
     board[position] = player
     
     display_board()            
@@ -201,4 +198,5 @@ def flip_player():
         
     return
 
+#call the play game function
 play_game() 
