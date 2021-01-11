@@ -50,15 +50,18 @@ def handle_turn(player):
     print ("It's player " + player + "'s turn")
     
     position = input("Choose your position from 1-9  : ")
-    
-    while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
-        position = input("Choose your position from 1-9  : ")
-    
-    position = int(position) - 1
-    
-    if board[position] != "-":
-        print("Not a valid position")
-    
+    valid = False
+  
+    while not valid:  
+        while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+            position = input("Choose your position from 1-9  : ")
+        
+        position = int(position) - 1
+        
+        if board[position] != "-":
+            print("Not a valid position")
+        else:
+            valid = True    
     
     board[position] = player
     
